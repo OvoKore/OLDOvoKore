@@ -34,7 +34,12 @@ public class OvoKore {
 
 	public OvoKore() {
 		initialize();
-		
+		if (new File("control").exists() == false) {
+			JOptionPane.showMessageDialog(frmOvokore, "O OvoKore não se encontra na pasta raiz do openkore\nFecha o Programa, mova-o para a pasta raiz do openkore e tente novamente");
+			System.exit(0);
+		} else {
+			JOptionPane.showMessageDialog(frmOvokore,"Detectado pasta openkore");
+		}
 	}
 
 	private void initialize() {
@@ -49,16 +54,8 @@ public class OvoKore {
 		btnOrdemKore = new JButton("OrdemKore");
 		btnOrdemKore.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (new File("control").exists() == false) {
-					JOptionPane.showMessageDialog(frmOvokore, "O OvoKore não se encontra na pasta raiz do openkore\nFecha o Programa, mova-o para a pasta raiz do openkore e tente novamente");
-					btnOrdemKore.setEnabled(false);
-					btnCriaKore.setEnabled(false);
-					btnStartKore.setEnabled(false);
-				} else {
-					OrdemKore ordemKore = new OrdemKore();
-					ordemKore.OpenOrdemKore();
-					JOptionPane.showMessageDialog(frmOvokore,"Detectado pasta openkore");
-				}
+				OrdemKore ordemKore = new OrdemKore();
+				ordemKore.OpenOrdemKore();
 			}
 		});
 		btnOrdemKore.setBounds(10, 11, 194, 54);
