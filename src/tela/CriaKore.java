@@ -72,11 +72,6 @@ public class CriaKore {
 			return;
 		}
 		
-		if(new File("control").exists() == false) {
-			JOptionPane.showMessageDialog(null, "O OvoKore não se encontra na pasta raiz do openkore");
-			return;
-		}
-		
 		if (new File("ordemkore").exists()) {
 			File[] files = new File("ordemkore").listFiles();
 			for (File file : files) {

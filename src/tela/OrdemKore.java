@@ -114,10 +114,6 @@ public class OrdemKore {
 	}
 	
 	public void Iniciar() {
-		if (new File("control").exists() == false) {
-			JOptionPane.showMessageDialog(null, "O OvoKore não se encontra na pasta raiz do openkore");
-			return;
-		}
 
 		if(new File("poseidon\\ordemkore.txt").exists() == false)
 			F00();
