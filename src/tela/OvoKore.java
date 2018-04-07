@@ -37,8 +37,6 @@ public class OvoKore {
 		if (new File("control").exists() == false) {
 			JOptionPane.showMessageDialog(frmOvokore, "O OvoKore não se encontra na pasta raiz do openkore\nFecha o Programa, mova-o para a pasta raiz do openkore e tente novamente");
 			System.exit(0);
-		} else {
-			JOptionPane.showMessageDialog(frmOvokore,"Detectado pasta openkore");
 		}
 	}
 

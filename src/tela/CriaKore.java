@@ -95,8 +95,8 @@ public class CriaKore {
 			String caminho = CriaKore.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
 			caminho = caminho.substring(1, caminho.lastIndexOf('/') + 1);
 			ShellLink sl = ShellLink.createLink(caminho + "openkore.pl");
-			sl.setCMDArgs("--control=\"" + caminho + "ordemkore/" + txf.getText() +"\" --logs=\"" + caminho + "ordemkore/" + txf.getText() + "/logs\"");
-			sl.saveTo(caminho + "ordemkore//" + txf.getText() + "//CriaKore" + txf.getText() + ".lnk");
+			sl.setCMDArgs("--config=\"" + caminho + "ordemkore/" + txf.getText() +"//config.txt");
+			sl.saveTo(caminho + "ordemkore//" + txf.getText() + "//" + txf.getText() + ".lnk");
 		} catch (URISyntaxException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao gerar o arquivo \"CriaKore " + txf.getText() + "\"");
 		} catch (IOException e) {

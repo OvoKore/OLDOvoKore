@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 
 public class StartKore {
 
-	private JFrame frmCriakore;
+	private JFrame frmStartKore;
 	
 	private List<File> pastas = new ArrayList<File>();
 	private int cont = 0;
@@ -27,7 +27,7 @@ public class StartKore {
 			public void run() {
 				try {
 					StartKore window = new StartKore();
-					window.frmCriakore.setVisible(true);
+					window.frmStartKore.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,17 +52,17 @@ public class StartKore {
 		if(pastas.size() == 0)
 			JOptionPane.showMessageDialog(null, "A pasta \"ordemkore\" está vazia");
 
-		frmCriakore = new JFrame();
-		frmCriakore.setIconImage(Toolkit.getDefaultToolkit().getImage(StartKore.class.getResource("/img/yoshi.png")));
-		frmCriakore.setTitle("StartKore");
-		frmCriakore.setBounds(100, 100, 240, 85 + (pastas.size() * 23));
-		frmCriakore.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frmCriakore.getContentPane().setLayout(null);
+		frmStartKore = new JFrame();
+		frmStartKore.setIconImage(Toolkit.getDefaultToolkit().getImage(StartKore.class.getResource("/img/yoshi.png")));
+		frmStartKore.setTitle("StartKore");
+		frmStartKore.setBounds(100, 100, 240, 85 + (pastas.size() * 23));
+		frmStartKore.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmStartKore.getContentPane().setLayout(null);
 		
 		for (File file : pastas) {
 			botao = new JRadioButton(file.getName());
 			botao.setBounds(10, 7 + (cont++ * 23), 195, 23);
-			frmCriakore.getContentPane().add(botao);
+			frmStartKore.getContentPane().add(botao);
 			botoes.add(botao);
 		}	
 	
@@ -73,7 +73,7 @@ public class StartKore {
 			}
 		});
 		btn.setBounds(10, 11 + (pastas.size() * 23), 195, 23);
-		frmCriakore.getContentPane().add(btn);
+		frmStartKore.getContentPane().add(btn);
 	}
 	
 	public void Iniciar() {
@@ -95,7 +95,7 @@ public class StartKore {
 			try {
 				JOptionPane.showMessageDialog(null, "Aperte \"ok\" para abrir o client - "  + String.valueOf(i+1) + "/" + poseidon);
 				Runtime.getRuntime().exec(new String[] { "cmd", "/C", "startPoseidon.bat" }, null, new File("poseidon"));
-				Esperar(3);
+				Esperar(5);
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, "Erro ao abrir o \"poseidon\\startPoseidon.bat");
 			}
@@ -107,10 +107,10 @@ public class StartKore {
 			String nome = new File(selecionado.getText()).getName();
 			if (selecionado.isSelected()) {
 				try {
-					Runtime.getRuntime().exec(new String[] { "cmd", "/C", "start CriaKore" + nome }, null, new File("ordemkore\\" + nome));
-					Esperar(1);
+					Runtime.getRuntime().exec(new String[] { "cmd", "/C", "start " + nome }, null, new File("ordemkore\\" + nome));
+					Esperar(5);
 				} catch (IOException e) {
-					JOptionPane.showMessageDialog(null, "Erro ao abrir o \"CriaKore" + nome + "\"");
+					JOptionPane.showMessageDialog(null, "Erro ao abrir o \"" + nome + "\"");
 				}
 			}
 		}
