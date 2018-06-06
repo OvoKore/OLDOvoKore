@@ -19,6 +19,8 @@ public class StartKore {
 	
 	private List<File> pastas = new ArrayList<File>();
 	private int cont = 0;
+	private JRadioButton hades = null;
+	private JRadioButton client = null;
 	private JRadioButton botao = null;
 	private List<JRadioButton> botoes = new ArrayList<JRadioButton>();
 	
@@ -55,13 +57,23 @@ public class StartKore {
 		frmStartKore = new JFrame();
 		frmStartKore.setIconImage(Toolkit.getDefaultToolkit().getImage(StartKore.class.getResource("/img/yoshi.png")));
 		frmStartKore.setTitle("StartKore");
-		frmStartKore.setBounds(100, 100, 240, 85 + (pastas.size() * 23));
+		frmStartKore.setBounds(100, 100, 240, 85 + ((1 + pastas.size()) * 23));
 		frmStartKore.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmStartKore.getContentPane().setLayout(null);
 		
+		hades = new JRadioButton("hades");
+		hades.setBounds(10, 7, 60, 23);
+		hades.setSelected(true);
+		frmStartKore.getContentPane().add(hades);
+		
+		client = new JRadioButton("client");
+		client.setBounds(100, 7, 60, 23);
+		client.setSelected(true);
+		frmStartKore.getContentPane().add(client);
+		
 		for (File file : pastas) {
 			botao = new JRadioButton(file.getName());
-			botao.setBounds(10, 7 + (cont++ * 23), 195, 23);
+			botao.setBounds(10, 7 +((1 + cont++) * 23), 195, 23);
 			frmStartKore.getContentPane().add(botao);
 			botoes.add(botao);
 		}	
@@ -72,40 +84,45 @@ public class StartKore {
 				Iniciar();
 			}
 		});
-		btn.setBounds(10, 11 + (pastas.size() * 23), 195, 23);
+		btn.setBounds(10, 11 + ((1 + pastas.size()) * 23), 195, 23);
 		frmStartKore.getContentPane().add(btn);
 	}
 	
 	public void Iniciar() {
-		try {
-			Runtime.getRuntime().exec(new String[] { "cmd", "/C", "start poseidon.pl" }, null, new File("poseidon\\download\\hades-master"));
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao abrir o \"poseidon\\download\\hades-master\\poseidon.pl\"");
-		}
-		
-		Esperar(1);
-		
-		int poseidon = 0;
-		for(JRadioButton abrir : botoes) {
-			if(abrir.isSelected())
-				poseidon++;
-		}
-		
-		for(int i = 0; i < poseidon; i++) {
+		if (hades.isSelected()) {
 			try {
-				JOptionPane.showMessageDialog(null, "Aperte \"ok\" para abrir o client - "  + String.valueOf(i+1) + "/" + poseidon);
-				Runtime.getRuntime().exec(new String[] { "cmd", "/C", "startPoseidon.bat" }, null, new File("poseidon"));
-				Esperar(5);
+				Runtime.getRuntime().exec(new String[] { "cmd", "/C", "start poseidon.pl" }, null, new File("poseidon\\download\\hades-master"));
 			} catch (IOException e) {
-				JOptionPane.showMessageDialog(null, "Erro ao abrir o \"poseidon\\startPoseidon.bat");
+				JOptionPane.showMessageDialog(null, "Erro ao abrir o \"poseidon\\download\\hades-master\\poseidon.pl\"");
+			}
+			
+			Esperar(1);
+		}
+		
+		
+		if (client.isSelected()) {
+			int poseidon = 0;
+			for(JRadioButton abrir : botoes) {
+				if(abrir.isSelected())
+					poseidon++;
+			}
+			
+			for(int i = 0; i < poseidon; i++) {
+				try {
+					JOptionPane.showMessageDialog(null, "Aperte \"ok\" para abrir o client - "  + String.valueOf(i+1) + "/" + poseidon);
+					Runtime.getRuntime().exec(new String[] { "cmd", "/C", "startPoseidon.bat" }, null, new File("poseidon"));
+					Esperar(5);
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Erro ao abrir o \"poseidon\\startPoseidon.bat\"");
+				}
 			}
 		}
 		
 		JOptionPane.showMessageDialog(null, "Aperte \"ok\" para abrir o(s) bot(s)");
 			
 		for (JRadioButton selecionado : botoes) {
-			String nome = new File(selecionado.getText()).getName();
 			if (selecionado.isSelected()) {
+				String nome = new File(selecionado.getText()).getName();
 				try {
 					Runtime.getRuntime().exec(new String[] { "cmd", "/C", "start " + nome }, null, new File("ordemkore\\" + nome));
 					Esperar(5);
