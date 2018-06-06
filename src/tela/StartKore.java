@@ -111,7 +111,7 @@ public class StartKore {
 				try {
 					JOptionPane.showMessageDialog(null, "Aperte \"ok\" para abrir o client - "  + String.valueOf(i+1) + "/" + poseidon);
 					Runtime.getRuntime().exec(new String[] { "cmd", "/C", "startPoseidon.bat" }, null, new File("poseidon"));
-					Esperar(5);
+					Esperar(3);
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null, "Erro ao abrir o \"poseidon\\startPoseidon.bat\"");
 				}
@@ -125,7 +125,7 @@ public class StartKore {
 				String nome = new File(selecionado.getText()).getName();
 				try {
 					Runtime.getRuntime().exec(new String[] { "cmd", "/C", "start " + nome }, null, new File("ordemkore\\" + nome));
-					Esperar(5);
+					Esperar(3);
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null, "Erro ao abrir o \"" + nome + "\"");
 				}
