@@ -199,9 +199,6 @@ public class OrdemKore {
 	public void F01() {
 		try {
 			FileUtils.copyURLToFile(new URL("https://mirror.irowiki.org/ragnarok/RGZ_Tools.zip"), new File("poseidon\\download\\RGZ_Tools.zip"));
-		} catch (MalformedURLException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao baixar o RGZ_Tools.zip");
-			return;
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao baixar o RGZ_Tools.zip");
 			return;
@@ -253,9 +250,6 @@ public class OrdemKore {
 	public void F04() {
 		try {
 			FileUtils.copyURLToFile(new URL("ftp://download.levelupgames.com.br/patch/2016-11-03aRagexe.rgz"), new File("poseidon\\download\\RGZ_Tools\\2016-11-03aRagexe.rgz"));
-		} catch (MalformedURLException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao baixar o 2016-11-03aRagexe.rgz");
-			return;
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao baixar o 2016-11-03aRagexe.rgz");
 			return;
@@ -274,7 +268,7 @@ public class OrdemKore {
 		
 		try {
 			new Thread();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao esperar o \"poseidon\\download\\RGZ_Tools\\Gerador.bat\" executar");
 			return;
@@ -311,9 +305,6 @@ public class OrdemKore {
 	public void F08() {
 		try {
 			FileUtils.copyURLToFile(new URL("https://github.com/marcelothebuilder/hades/archive/master.zip"), new File("poseidon\\download\\hades-master.zip"));
-		} catch (MalformedURLException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao baixar o hades-master.zip");
-			return;
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao baixar o hades-master.zip");
 			return;
@@ -402,12 +393,7 @@ public class OrdemKore {
 			}
 			Files.write(path, linhas);
 			buffread.close();
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao modificar o arquivo \"control\\config.txt\"");
-			return;
-		}
-		
-		try {
+			
 			writer = new FileWriter(new File("control\\config.txt"), true);
 			buffwriter = new BufferedWriter(writer);
 			buffwriter.write("\ngameGuard 1\nhadesServer 127.0.0.1\nhadesPort 24666\n");
@@ -416,6 +402,7 @@ public class OrdemKore {
 			JOptionPane.showMessageDialog(null, "Erro ao modificar o arquivo \"control\\config.txt\"");
 			return;
 		}
+		
 		Modifica("13");
 	}
 	

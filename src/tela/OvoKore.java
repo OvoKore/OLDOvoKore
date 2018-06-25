@@ -1,10 +1,8 @@
 package tela;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import java.awt.Toolkit;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -24,7 +22,6 @@ public class OvoKore {
 				try {
 					OvoKore window = new OvoKore();
 					window.frmOvokore.setVisible(true);
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,8 +49,7 @@ public class OvoKore {
 		btnOrdemKore = new JButton("OrdemKore");
 		btnOrdemKore.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				OrdemKore ordemKore = new OrdemKore();
-				ordemKore.OpenOrdemKore();
+				new OrdemKore().OpenOrdemKore();
 			}
 		});
 		btnOrdemKore.setBounds(10, 11, 194, 54);
@@ -62,8 +58,7 @@ public class OvoKore {
 		btnCriaKore = new JButton("CriaKore");
 		btnCriaKore.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CriaKore criaKore = new CriaKore();
-				criaKore.OpenCriaKore();
+				new CriaKore().OpenCriaKore();
 			}
 		});
 		btnCriaKore.setBounds(10, 76, 194, 54);
@@ -72,8 +67,7 @@ public class OvoKore {
 		btnStartKore = new JButton("StartKore");
 		btnStartKore.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StartKore startKore = new StartKore();
-				startKore.OpenStartKore();
+				new StartKore().OpenStartKore();
 			}
 		});
 		btnStartKore.setBounds(10, 141, 194, 54);
