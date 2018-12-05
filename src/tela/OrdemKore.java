@@ -143,7 +143,7 @@ public class OrdemKore {
 					case "18": F18(); break;
 					case "19": F19(); break;
 					default:
-						JOptionPane.showMessageDialog(null, "Valor inv·lido para o arquivo \"ordemkore.txt\"");
+						JOptionPane.showMessageDialog(null, "Valor inv√°lido para o arquivo \"ordemkore.txt\"");
 				}
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, "Erro ao ler o arquivo \"poseidon\\ordemkore.txt\"");
@@ -179,7 +179,7 @@ public class OrdemKore {
 			}
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "Pasta \"Ragnarok\" n„o encontrada");
+			JOptionPane.showMessageDialog(null, "Pasta \"Ragnarok\" n√£o encontrada");
 			return;
 		}
 		
@@ -240,7 +240,7 @@ public class OrdemKore {
 			buffwriter.write("gzip -dc 2016-11-03aRagexe.rgz | rat -d\nexit");
 			buffwriter.close();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Erro na criaÁ„o do \"poseidon\\download\\RGZ_Tools\\Gerador.bat\"");
+			JOptionPane.showMessageDialog(null, "Erro na cria√ß√£o do \"poseidon\\download\\RGZ_Tools\\Gerador.bat\"");
 			return;
 		}
 		Modifica("04");
@@ -396,7 +396,7 @@ public class OrdemKore {
 			
 			writer = new FileWriter(new File("control\\config.txt"), true);
 			buffwriter = new BufferedWriter(writer);
-			buffwriter.write("\ngameGuard 1\nhadesServer 127.0.0.1\nhadesPort 24666\n");
+			buffwriter.write("\ngameGuard 0\nhadesServer 127.0.0.1\nhadesPort 24666\n");
 			buffwriter.close();
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Erro ao modificar o arquivo \"control\\config.txt\"");
