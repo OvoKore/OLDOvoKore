@@ -41,7 +41,7 @@ public class StartKore {
 
 	private void initialize() {
 		if (new File("ordemkore").exists() == false)
-			JOptionPane.showMessageDialog(null, "A pasta \"ordemkore\" n„o existe");
+			JOptionPane.showMessageDialog(null, "A pasta \"ordemkore\" n√£o existe");
 		
 		File[] files = new File("ordemkore").listFiles();
 		for (File file : files) {
@@ -50,7 +50,7 @@ public class StartKore {
 		}
 		
 		if(pastas.size() == 0)
-			JOptionPane.showMessageDialog(null, "A pasta \"ordemkore\" est· vazia");
+			JOptionPane.showMessageDialog(null, "A pasta \"ordemkore\" est√° vazia");
 
 		frmCriakore = new JFrame();
 		frmCriakore.setIconImage(Toolkit.getDefaultToolkit().getImage(StartKore.class.getResource("/img/yoshi.png")));
@@ -78,9 +78,9 @@ public class StartKore {
 	
 	public void Iniciar() {
 		try {
-			Runtime.getRuntime().exec(new String[] { "cmd", "/C", "start poseidon.pl" }, null, new File("poseidon\\download\\hades-master"));
+			Runtime.getRuntime().exec(new String[] { "cmd", "/C", "start hades_start.pl" }, null, new File("poseidon\\download\\hades-master"));
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Erro ao abrir o \"poseidon\\download\\hades-master\\poseidon.pl\"");
+			JOptionPane.showMessageDialog(null, "Erro ao abrir o \"poseidon\\download\\hades-master\\hades_start.pl\"");
 		}
 		
 		Esperar(1);
